@@ -33,7 +33,7 @@ namespace GetDataBD
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Убедитесь, что событие произошло на строке, а не за пределами таблицы
+            if (e.RowIndex >= 0)
             {
                 string? tableName = databaseTablesListGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 LoadColumnInformation(tableName!);
@@ -122,6 +122,8 @@ namespace GetDataBD
             dataBase.passwordDB = passwordDB.Text;
 
             btnDatabaseTablesList.Enabled = true;
+
+            btnDatabaseTablesList_Click(sender, e);
         }
     }
 }
