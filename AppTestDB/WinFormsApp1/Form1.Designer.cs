@@ -69,6 +69,7 @@
             // 
             // btnDatabaseTablesList
             // 
+            btnDatabaseTablesList.Enabled = false;
             btnDatabaseTablesList.Location = new Point(17, 378);
             btnDatabaseTablesList.Name = "btnDatabaseTablesList";
             btnDatabaseTablesList.Size = new Size(234, 35);

@@ -121,6 +121,7 @@ namespace GetDataBD
             dataBase.loginDB = LoginDB.Text;
             dataBase.passwordDB = passwordDB.Text;
 
+            btnDatabaseTablesList.Enabled = true;
         }
     }
 }
