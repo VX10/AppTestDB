@@ -1,0 +1,6 @@
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\bin\Debug\DataBase.dll
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\bin\Debug\DataBase.pdb
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\obj\Debug\DataBaseLibrary.csproj.AssemblyReference.cache
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\obj\Debug\DataBaseLibrary.csproj.CoreCompileInputs.cache
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\obj\Debug\DataBase.dll
+X:\Pro\C#\CS_01\DataBase_lib\DataBase\DataBase\obj\Debug\DataBase.pdb
