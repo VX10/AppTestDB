@@ -58,6 +58,8 @@ namespace DataBaseLibrary
             {
                 try
                 {
+                    connection.ConnectionString =
+                        $"Data Source={serverName};Initial Catalog={nameDB};User id={loginDB};Password={passwordDB};";
                     connection.Open();
 
                     string query = $"SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH " +
