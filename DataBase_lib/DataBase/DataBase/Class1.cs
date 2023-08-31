@@ -11,6 +11,7 @@ namespace DataBaseLibrary
 {
     public class DataBase
     {
+        public string serverName = "";
         public string nameDB = "";
         public string loginDB = "";
         public string passwordDB = "";
@@ -18,30 +19,40 @@ namespace DataBaseLibrary
 
         public DataTable DatabaseTablesList()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                // Получение списка таблиц
-                DataTable tables = connection.GetSchema("Tables");
-
-                DataTable filteredTables = new DataTable();
-                filteredTables.Columns.Add("TABLE_NAME");
-
-                foreach (DataRow row in tables.Rows)
+                using (SqlConnection connection = new SqlConnection())
                 {
-                    string catalog = row["TABLE_CATALOG"].ToString();
-                    if (catalog == "productDb")
-                    {
-                        filteredTables.Rows.Add(row["TABLE_NAME"]);
-                    }
-                }
+                    connection.ConnectionString =
+                        $"Data Source={serverName};Initial Catalog={nameDB};User id={loginDB};Password={passwordDB};";
+                    connection.Open();
 
-                return filteredTables;
+                    // Получение списка таблиц
+                    DataTable tables = connection.GetSchema("Tables");
+
+                    DataTable filteredTables = new DataTable();
+                    filteredTables.Columns.Add("TABLE_NAME");
+
+                    foreach (DataRow row in tables.Rows)
+                    {
+                        string catalog = row["TABLE_CATALOG"].ToString();
+                        if (catalog == "productDb")
+                        {
+                            filteredTables.Rows.Add(row["TABLE_NAME"]);
+                        }
+                    }
+
+                    return filteredTables;
+                }
             }
+            catch (Exception)
+            {
+                return null;
+            }
+            
         }
 
-        public DataTable LoadColumnInformation(string connectionString, string tableName)
+        public DataTable LoadColumnInformation(string tableName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

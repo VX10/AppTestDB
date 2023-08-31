@@ -21,10 +21,12 @@ namespace GetDataBD
 
         private void btnDatabaseTablesList_Click(object sender, EventArgs e)
         {
-            dataBase.connectionString = "Data Source=I7;Initial Catalog=productDb;Integrated Security=True";
-
-
             databaseTablesListGridView.DataSource = dataBase.DatabaseTablesList();
+            if (databaseTablesListGridView.DataSource is null)
+            {
+                MessageBox.Show($"Ошибка подключения к БД");
+                return;
+            }
 
             databaseTablesListGridView.CellClick += DataGridView1_CellClick!;
         }
@@ -40,10 +42,7 @@ namespace GetDataBD
 
         private void LoadColumnInformation(string tableName)
         {
-            string connectionString = "Data Source=I7;Initial Catalog=productDb;Integrated Security=True";
-
-            ColumnInformationGridView.DataSource = dataBase.LoadColumnInformation(connectionString, tableName);
-
+            ColumnInformationGridView.DataSource = dataBase.LoadColumnInformation(tableName);
         }
 
         private void btnSaveDoc_Click(object sender, EventArgs e)
@@ -117,6 +116,7 @@ namespace GetDataBD
 
         private void btnConnectBD_Click(object sender, EventArgs e)
         {
+            dataBase.serverName = "(local)";
             dataBase.nameDB = NameDB.Text;
             dataBase.loginDB = LoginDB.Text;
             dataBase.passwordDB = passwordDB.Text;
