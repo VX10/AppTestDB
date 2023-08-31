@@ -22,7 +22,7 @@ namespace GetDataBD
         {
             string connectionString = "Data Source=I7;Initial Catalog=productDb;Integrated Security=True";
 
-            
+
             databaseTablesListGridView.DataSource = dataBase.DatabaseTablesList(connectionString);
 
             databaseTablesListGridView.CellClick += DataGridView1_CellClick!;
