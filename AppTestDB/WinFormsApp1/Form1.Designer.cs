@@ -39,10 +39,10 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            dbLogin = new TextBox();
-            dbName = new TextBox();
-            btnBDConnect = new Button();
+            passwordDB = new TextBox();
+            LoginDB = new TextBox();
+            NameDB = new TextBox();
+            btnConnectBD = new Button();
             ((System.ComponentModel.ISupportInitialize)databaseTablesListGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ColumnInformationGridView).BeginInit();
             groupBox1.SuspendLayout();
@@ -52,7 +52,7 @@
             // databaseTablesListGridView
             // 
             databaseTablesListGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            databaseTablesListGridView.Location = new Point(17, 33);
+            databaseTablesListGridView.Location = new Point(17, 44);
             databaseTablesListGridView.Name = "databaseTablesListGridView";
             databaseTablesListGridView.RowTemplate.Height = 25;
             databaseTablesListGridView.Size = new Size(234, 328);
@@ -61,7 +61,7 @@
             // ColumnInformationGridView
             // 
             ColumnInformationGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ColumnInformationGridView.Location = new Point(255, 33);
+            ColumnInformationGridView.Location = new Point(255, 44);
             ColumnInformationGridView.Name = "ColumnInformationGridView";
             ColumnInformationGridView.RowTemplate.Height = 25;
             ColumnInformationGridView.Size = new Size(525, 328);
@@ -104,7 +104,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(255, 15);
+            label2.Location = new Point(255, 26);
             label2.Name = "label2";
             label2.Size = new Size(145, 15);
             label2.TabIndex = 5;
@@ -113,7 +113,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 15);
+            label1.Location = new Point(17, 26);
             label1.Name = "label1";
             label1.Size = new Size(164, 15);
             label1.TabIndex = 4;
@@ -124,10 +124,10 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Controls.Add(dbLogin);
-            groupBox2.Controls.Add(dbName);
-            groupBox2.Controls.Add(btnBDConnect);
+            groupBox2.Controls.Add(passwordDB);
+            groupBox2.Controls.Add(LoginDB);
+            groupBox2.Controls.Add(NameDB);
+            groupBox2.Controls.Add(btnConnectBD);
             groupBox2.Location = new Point(8, 6);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(796, 69);
@@ -138,7 +138,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(461, 19);
+            label5.Location = new Point(461, 22);
             label5.Name = "label5";
             label5.Size = new Size(49, 15);
             label5.TabIndex = 8;
@@ -147,7 +147,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(255, 19);
+            label4.Location = new Point(255, 22);
             label4.Name = "label4";
             label4.Size = new Size(109, 15);
             label4.TabIndex = 7;
@@ -156,42 +156,46 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 19);
+            label3.Location = new Point(17, 22);
             label3.Name = "label3";
             label3.Size = new Size(105, 15);
             label3.TabIndex = 6;
             label3.Text = "Имя базы данных";
             // 
-            // textBox1
+            // passwordDB
             // 
-            textBox1.Location = new Point(461, 40);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 3;
+            passwordDB.Location = new Point(461, 40);
+            passwordDB.Name = "passwordDB";
+            passwordDB.PasswordChar = '*';
+            passwordDB.Size = new Size(200, 23);
+            passwordDB.TabIndex = 3;
+            passwordDB.Text = "sa";
             // 
-            // dbLogin
+            // LoginDB
             // 
-            dbLogin.Location = new Point(255, 40);
-            dbLogin.Name = "dbLogin";
-            dbLogin.Size = new Size(200, 23);
-            dbLogin.TabIndex = 2;
+            LoginDB.Location = new Point(255, 40);
+            LoginDB.Name = "LoginDB";
+            LoginDB.Size = new Size(200, 23);
+            LoginDB.TabIndex = 2;
+            LoginDB.Text = "sa";
             // 
-            // dbName
+            // NameDB
             // 
-            dbName.Location = new Point(17, 40);
-            dbName.Name = "dbName";
-            dbName.Size = new Size(200, 23);
-            dbName.TabIndex = 1;
+            NameDB.Location = new Point(17, 40);
+            NameDB.Name = "NameDB";
+            NameDB.Size = new Size(200, 23);
+            NameDB.TabIndex = 1;
+            NameDB.Text = "productDb";
             // 
-            // btnBDConnect
+            // btnConnectBD
             // 
-            btnBDConnect.Location = new Point(667, 39);
-            btnBDConnect.Name = "btnBDConnect";
-            btnBDConnect.Size = new Size(113, 23);
-            btnBDConnect.TabIndex = 0;
-            btnBDConnect.Text = "Connect BD";
-            btnBDConnect.UseVisualStyleBackColor = true;
+            btnConnectBD.Location = new Point(667, 39);
+            btnConnectBD.Name = "btnConnectBD";
+            btnConnectBD.Size = new Size(113, 23);
+            btnConnectBD.TabIndex = 0;
+            btnConnectBD.Text = "Connect BD";
+            btnConnectBD.UseVisualStyleBackColor = true;
+            btnConnectBD.Click += btnConnectBD_Click;
             // 
             // Form1
             // 
@@ -222,10 +226,10 @@
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
-        private Button btnBDConnect;
-        private TextBox textBox1;
-        private TextBox dbLogin;
-        private TextBox dbName;
+        private Button btnConnectBD;
+        private TextBox passwordDB;
+        private TextBox LoginDB;
+        private TextBox NameDB;
         private Label label5;
         private Label label4;
         private Label label3;

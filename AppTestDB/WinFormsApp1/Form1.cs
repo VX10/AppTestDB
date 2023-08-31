@@ -2,6 +2,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Xceed.Words.NET;
 using Xceed.Document.NET;
+using DataBaseLibrary;
 
 namespace GetDataBD
 {
@@ -20,10 +21,10 @@ namespace GetDataBD
 
         private void btnDatabaseTablesList_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=I7;Initial Catalog=productDb;Integrated Security=True";
+            dataBase.connectionString = "Data Source=I7;Initial Catalog=productDb;Integrated Security=True";
 
 
-            databaseTablesListGridView.DataSource = dataBase.DatabaseTablesList(connectionString);
+            databaseTablesListGridView.DataSource = dataBase.DatabaseTablesList();
 
             databaseTablesListGridView.CellClick += DataGridView1_CellClick!;
         }
@@ -112,6 +113,14 @@ namespace GetDataBD
                 return false;
             }
             return true;
+        }
+
+        private void btnConnectBD_Click(object sender, EventArgs e)
+        {
+            dataBase.nameDB = NameDB.Text;
+            dataBase.loginDB = LoginDB.Text;
+            dataBase.passwordDB = passwordDB.Text;
+
         }
     }
 }

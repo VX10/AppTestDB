@@ -11,7 +11,12 @@ namespace DataBaseLibrary
 {
     public class DataBase
     {
-        public DataTable DatabaseTablesList(string connectionString)
+        public string nameDB = "";
+        public string loginDB = "";
+        public string passwordDB = "";
+        public string connectionString = "";
+
+        public DataTable DatabaseTablesList()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
